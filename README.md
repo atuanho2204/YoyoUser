@@ -1,6 +1,7 @@
 # YoyoUser
 
 ## Installation
+A Web-service that used for products management of family store.
 
 ### Server side:
   Go to backend folder and type the following line:
