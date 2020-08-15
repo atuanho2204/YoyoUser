@@ -1,5 +1,5 @@
 import React from 'react'
-import { Redirect } from 'react-router-dom' 
+import { Redirect } from 'react-router-dom'
 import { Api } from '../../api'
 
 export class Login extends React.Component {
@@ -44,27 +44,27 @@ export class Login extends React.Component {
         <form className="mt-5 w-50 mx-auto">
           <div className="form-group">
             <label htmlFor="username">Username</label>
-            <input type="text" 
-                   className="form-control" 
-                   id="username" 
+            <input type="text"
+                   className="form-control"
+                   id="username"
                    placeholder="Enter username"
                    onChange={e => this.setState({username: e.target.value})}/>
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>
-            <input type="password" 
-                   className="form-control" 
-                   id="password" 
+            <input type="password"
+                   className="form-control"
+                   id="password"
                    placeholder="Enter password"
                    onChange={e => this.setState({password: e.target.value})}/>
           </div>
           <button type="button"
                   className="mt-4 btn btn-primary btn-block"
                   onClick={() => this.login()}>
-            Submit        
+            Submit
           </button>
         </form>
       </>
     )
-  } 
+  }
 }
