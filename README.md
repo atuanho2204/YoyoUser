@@ -1,4 +1,18 @@
 # YoyoUser
-1. Run frontend: cd frontend && npm start
-2. Run backend: cd backend && npm start
-3. Create SQL: use init.sql
+
+## Installation
+
+### Server side:
+  Go to backend folder and type the following line:
+  ```sh
+$ npm install
+$ npm start
+```
+### Client side:
+  Go to frontend folder and tyoe the following line:
+  ```sh
+$ npm install 
+$ npm start
+```
+### Create MySQL Database:
+  Use init.sql file to install database.
