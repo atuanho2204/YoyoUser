@@ -10,7 +10,7 @@ $ npm install
 $ npm start
 ```
 ### Client side:
-  Go to frontend folder and tyoe the following line:
+  Go to frontend folder and type the following line:
   ```sh
 $ npm install 
 $ npm start
