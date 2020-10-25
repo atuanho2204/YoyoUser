@@ -42,7 +42,15 @@ export class EmailDialog extends React.Component {
                            onChange={e => this.setState({lastName: e.target.value})} />
                   </div>
 
-
+                  <label htmlFor="email" className="col-sm-3 col-form-label">Email</label>
+                  <div className="col-sm-9">
+                    <input type="text"
+                           className="form-control"
+                           id="email"
+                           placeholder="Email"
+                           value={this.state.email}
+                           onChange={e => this.setState({email: e.target.value})} />
+                  </div>
                 </div>
               </form>
             </div>
