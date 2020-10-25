@@ -33,18 +33,7 @@ export class EmailTable extends React.Component {
           <button className="btn btn-primary float-right"
                   onClick={() => this.addEmail()}>Create Email</button>
           <hr />
-          <table className="table table-striped table-bordered">
-            <thead>
-              <tr>
-              {
-              this.headers.map((item, id) => (
-                <th scope="col" key={id}>{item}</th>
-              ))
-              }
-              </tr>
-            </thead>
 
-          </table>
         </div>
 
       </>
