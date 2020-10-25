@@ -35,7 +35,28 @@ router.get('/:id', (req, res) => {
     )
 })
 
+router.get('/', (req, res) => {
+    if (!auth(req.headers)) {
+        res.status(401).json({
+            response: "Authentication failed",
+        });
+        return;
+    }
 
+    let id = req.params.id;
+
+    connection.query(
+        `SELECT id, username, password, firstName, lastName, email, roleMask FROM users;`,
+
+        (err, rows, field) => {
+            if(err) {
+                res.status(400).end();
+                return;
+            }
+            res.status(200).json(rows)
+        }
+    )
+})
 
 
 
