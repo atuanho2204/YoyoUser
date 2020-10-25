@@ -33,11 +33,18 @@ export class EmailTable extends React.Component {
     this.handleShowModal();
   }
 
+  handleHideModal() {
+    this.setState({showModal: false})
+  }
 
+  handleShowModal(){
+    this.setState({showModal: true})
+  }
 
-
-
-
+  updateEmail(email) {
+    this.api.updateEmail(email)
+      .then(() => window.location.reload(false))
+  }
 
   render() {
     if (!(this.state.currentUser.roleMask & 1)) return <Page404 />;
