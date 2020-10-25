@@ -58,7 +58,39 @@ router.get('/', (req, res) => {
     )
 })
 
+router.put('/', (req, res) => {
+    if (!auth(req.headers)) {
+        res.status(401).json({
+            response: "Authentication failed",
+        });
+        return;
+    }
+    let user = req.body;
+    connection.query(
+        `UPDATE users
+        SET firstName = '${user.firstName}',
+            lastName = '${user.lastName}',
+            email = '${user.email}',
+            username = '${user.username}',
+            roleMask = '${user.roleMask}'
+        WHERE id = ${user.id};
 
+        UPDATE users
+        SET password =
+            IF (${user.newPassword.length} > 0, '${user.newPassword}', password)
+        WHERE id = ${user.id}
+        `,
+        (err, rows, field) => {
+            if(err) {
+                res.status(400).end("Bad");
+                return;
+            }
+            res.status(200).json({
+                'msg': 'Update Successfully'
+            })
+        }
+    )
+})
 
 
 
