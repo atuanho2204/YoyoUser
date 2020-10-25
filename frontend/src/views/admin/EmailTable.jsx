@@ -95,5 +95,13 @@ export class EmailTable extends React.Component {
       </>
     )
   }
+  componentDidMount() {
+    this.api.getCurrentUser()
+      .then(data => this.setState({currentUser: data}))
 
+    this.api.getEmails()
+      .then(data => {
+        this.setState({emails: data.reverse()});
+      })
+  }
 }
