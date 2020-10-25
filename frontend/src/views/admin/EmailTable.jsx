@@ -33,7 +33,34 @@ export class EmailTable extends React.Component {
           <button className="btn btn-primary float-right"
                   onClick={() => this.addEmail()}>Create Email</button>
           <hr />
-
+          <table className="table table-striped table-bordered">
+            <thead>
+              <tr>
+              {
+              this.headers.map((item, id) => (
+                <th scope="col" key={id}>{item}</th>
+              ))
+              }
+              </tr>
+            </thead>
+            <tbody>
+              {
+              this.state.emails.map((email, id) => (
+                <tr key={id}>
+                  <td>{email.firstName}</td>
+                  <td>{email.lastName}</td>
+                  <td>{email.email}</td>
+                  <td><button style={{fontSize:"0.6em"}}
+                              className="btn btn-sm btn-info w-50"
+                              onClick={() => this.openEditor(email)}> Edit </button></td>
+                  <td><button style={{fontSize:"0.6em"}}
+                              className="btn btn-sm btn-danger w-50"
+                              onClick={() => this.deleteEmail(email.email, email.id)}> Delete </button></td>
+                </tr>
+              ))
+              }
+            </tbody>
+          </table>
         </div>
 
       </>
