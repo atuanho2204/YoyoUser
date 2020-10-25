@@ -20,7 +20,13 @@ export class EmailTable extends React.Component {
       .then(() => window.location.reload(false))
   }
 
+  deleteEmail(name, id) {
+    let confirmed = window.confirm("Do you want to delete " + name + "?")
+    if (!confirmed) return;
 
+    this.api.deleteEmail(id)
+      .then(() => window.location.reload(false))
+  }
 
 
 
