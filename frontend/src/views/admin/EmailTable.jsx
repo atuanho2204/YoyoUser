@@ -28,7 +28,26 @@ export class EmailTable extends React.Component {
                         handleHideModal={() => this.handleHideModal()}
                         update={(email) => this.updateEmail(email)} />}
                       
+      <div className="m-2 ml-4 mr-4">
+          <h3 className="d-inline">Email Table</h3>
+          <button className="btn btn-primary float-right"
+                  onClick={() => this.addEmail()}>Create Email</button>
+          <hr />
+          <table className="table table-striped table-bordered">
+            <thead>
+              <tr>
+              {
+              this.headers.map((item, id) => (
+                <th scope="col" key={id}>{item}</th>
+              ))
+              }
+              </tr>
+            </thead>
 
+          </table>
+        </div>
+
+      </>
     )
   }
   componentDidMount() {
