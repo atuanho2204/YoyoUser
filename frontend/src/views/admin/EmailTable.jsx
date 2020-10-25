@@ -15,6 +15,19 @@ export class EmailTable extends React.Component {
     curEmail: null,
   }
 
+  addEmail() {
+    this.api.addEmail()
+      .then(() => window.location.reload(false))
+  }
+
+
+
+
+
+
+
+
+
 
 
   render() {
