@@ -28,7 +28,10 @@ export class EmailTable extends React.Component {
       .then(() => window.location.reload(false))
   }
 
-
+  openEditor(email) {
+    this.setState({curEmail: email});
+    this.handleShowModal();
+  }
 
 
 
