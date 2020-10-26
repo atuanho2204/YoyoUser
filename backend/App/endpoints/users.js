@@ -92,8 +92,28 @@ router.put('/', (req, res) => {
     )
 })
 
+router.post('/new', (req, res) => {
+    if (!auth(req.headers)) {
+        res.status(401).json({
+            response: "Authentication failed",
+        });
+        return;
+    }
+    connection.query(
+        `INSERT INTO users (username, password, firstName, lastName, email, roleMask) VALUES
+        ('username', 'password', 'New', 'User', 'newuser@email.com', 0) ;`,
 
-
+        (err, rows, field) => {
+            if(err) {
+                res.status(400).end();
+                return;
+            }
+            res.status(200).json({
+                'msg': 'Create Successfully'
+            })
+        }
+    )
+})
 
 
 
