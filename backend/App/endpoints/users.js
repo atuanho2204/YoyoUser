@@ -115,6 +115,29 @@ router.post('/new', (req, res) => {
     )
 })
 
+router.delete('/:id', (req, res) => {
+    if (!auth(req.headers)) {
+        res.status(401).json({
+            response: "Authentication failed",
+        });
+        return;
+    }
+
+    let id = req.params.id;
+
+    connection.query(
+        `DELETE FROM users
+            WHERE id = '${id}';`,
+
+        (err, rows, field) => {
+            if(err) {
+                res.status(400).end();
+                return;
+            }
+            res.status(200).end()
+        }
+    )
+})
 
 
 module.exports = router 
