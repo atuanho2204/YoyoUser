@@ -34,7 +34,11 @@ export class ProductTable extends React.Component {
   }
   render() {
     if (!(this.state.currentUser.roleMask & 1)) return <Page404 />;
-    return ()
+    return (
+        <>
+        <NavBar />
+        </>
+    )
   }
   componentDidMount() {
     this.api.getCurrentUser()
@@ -42,8 +46,8 @@ export class ProductTable extends React.Component {
 
     this.api.getProducts()
       .then(data => {
-    this.setState({products: data.reverse()});
+        this.setState({products: data.reverse()});
       })
-    }
+
   }
 }
